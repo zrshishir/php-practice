@@ -81,6 +81,37 @@ class linkedList{
         return false;
     }
 
+    public function deleteFirst() {
+        if ($this->firstNode !== NULL) {
+            if ($this->firstNode->next !== NULL) {
+                $this->firstNode = $this->firstNode->next;
+            } else {
+                $this->firstNode = NULL;
+            }
+            $this->totalNode--;
+            return TRUE;
+        }
+        return FALSE;
+    }
+
+    public function deleteLast() {  
+        if ($this->firstNode !== NULL) { 
+            $currentNode = $this->firstNode;  
+            if ($currentNode->next === NULL) { 
+                $this->firstNode = NULL;  
+            } else {  
+                $previousNode = NULL; 
+                while ($currentNode->next !== NULL) {  
+                    $previousNode = $currentNode; 
+                    $currentNode = $currentNode->next;  
+                }  
+                $previousNode->next = NULL;
+                $this->totalNode--;  
+                return TRUE; 
+             }  
+        }  return FALSE;
+    }
+
     public function display(){
         echo "Total book titles are: " . $this->totalNode. "<br>";
         $currentNode = $this->firstNode;
