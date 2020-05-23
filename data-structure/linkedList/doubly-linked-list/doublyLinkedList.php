@@ -88,4 +88,74 @@ class doublyLinkedList{
             } 
         } 
     }
+
+    public function deleteFirst() {  
+        if ($this->firstNode !== NULL) {  
+            if ($this->firstNode->next !== NULL) {  
+                $this->firstNode = $this->firstNode->next;  
+                $this->firstNode->prev = NULL;  
+            } else {  
+                $this->firstNode = NULL;  
+            }  
+            $this->totalNode--;  
+            return TRUE;  
+        }  
+        return FALSE;  
+    }
+
+    public function deleteLast() {  
+        if ($this->lastNode !== NULL) {  
+            $currentNode = $this->lastNode;  
+            if ($currentNode->prev === NULL) {  
+                $this->firstNode = NULL;  
+                $this->lastNode = NULL;  
+            } else {  
+                $previousNode = $currentNode->prev;  
+                $this->lastNode = $previousNode;  
+                $previousNode->next = NULL;  
+                $this->totalNode--;  
+                return TRUE;  
+            }  
+        }  
+        return FALSE;  
+    }
+
+    public function delete(string $query = NULL) {  
+        if ($this->firstNode) {  
+            $previous = NULL; 
+            $currentNode = $this->firstNode;  
+            while ($currentNode !== NULL) {  
+                if ($currentNode->data === $query) {  
+                    if ($currentNode->next === NULL) {  
+                        $previous->next = NULL;  
+                    } else {  
+                        $previous->next = $currentNode->next;  
+                        $currentNode->next->prev = $previous;  
+                    } 
+                    $this->totalNode--;  
+                    break;  
+                } 
+                $previous = $currentNode;  
+                $currentNode = $currentNode->next;  
+            } 
+        } 
+    }
+
+    public function displayForward() {  
+        echo "Total book titles: " . $this->totalNode . "\n";  
+        $currentNode = $this->firstNode;  
+        while ($currentNode !== NULL) {  
+            echo $currentNode->data . "\n";  
+            $currentNode = $currentNode->next;  
+        }  
+    }
+
+    public function displayBackward() {  
+        echo "Total book titles: " . $this->totalNode . "\n";  
+        $currentNode = $this->lastNode;  
+        while ($currentNode !== NULL) {  
+            echo $currentNode->data . "\n";  
+            $currentNode = $currentNode->prev;  
+        } 
+    }
 }
