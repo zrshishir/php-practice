@@ -4,8 +4,8 @@ $totalVertices = 5;
 $graph = [];
 
 //getting input with weighted graph
-for($i = 1; $i <= $totalVertices; $i++){
-    for($j = 1; $j <= $totalVertices; $j++){
+for($i = 0; $i < $totalVertices; $i++){
+    for($j = 0; $j < $totalVertices; $j++){
         $graph[$i][$j] = $i == $j ? 0 : PHP_INT_MAX;
     }
 }
@@ -18,4 +18,18 @@ $graph[1][2] = $graph[2][1] = 5;
 $graph[1][3] = $graph[3][1] = 5;
 $graph[1][4] = $graph[4][1] = 10;
 $graph[3][4] = $graph[4][3] = 20;
-var_dump($graph);
+
+
+function floydWarshall(array $graph): array {
+        $dist = [];
+        $dist = $graph;
+        $size = count($dist);
+        for ($k = 0; $k < $size; $k++)
+            for ($i = 0; $i < $size; $i++)
+                for ($j = 0; $j < $size; $j++)
+                    $dist[$i][$j] = min($dist[$i][$j],$dist[$i][$k] + $dist[$k][$j]);
+        return $dist;
+}
+
+$distance = floydWarshall($graph);
+print_r($distance);
