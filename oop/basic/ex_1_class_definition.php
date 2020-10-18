@@ -8,9 +8,3 @@ class SimpleClass{
         echo $this->name. "\n";
     }
 }
-
-
-$simple = new SimpleClass();
-
-$simple->displayName();
-echo $simple->name;
