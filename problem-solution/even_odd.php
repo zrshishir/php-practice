@@ -4,11 +4,16 @@ $startMemory = memory_get_usage();
 $count = 0;
 
 
-function yourFunctionName(int $n): int{
-    
+function even_odd(int $n): String{
+    if($n % 2 == 0){
+        return 'this is even no!';
+    }else{
+        return 'this is odd no!';
+    }
 }
 
 //calling function and giving output here
+echo even_odd(0) . "\n";
 
 $endTime = microtime(true);
 $endMemory = memory_get_usage();
