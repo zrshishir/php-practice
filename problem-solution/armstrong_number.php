@@ -20,7 +20,7 @@ function armostrongNumber(int $n): void{
 }
 
 //calling function and giving output here
-$number = 407;
+$number = 153;
 armostrongNumber($number);
 
 $endTime = microtime(true);
