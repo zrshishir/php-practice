@@ -12,7 +12,7 @@ function reverseString(String $str): void{
 }
 
 //calling function and giving output here
-echo reverseString('shishir') . "\n";
+echo reverseString('world') . "\n";
 
 $endTime = microtime(true);
 $endMemory = memory_get_usage();
