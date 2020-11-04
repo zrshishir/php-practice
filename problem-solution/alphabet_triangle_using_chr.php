@@ -9,7 +9,7 @@ function alphabetTriangle(): void{
         for($j = 5; $j >= $i - 64; $j--){
             echo chr($i);
         }
-        echo "\n";
+        echo PHP_EOL;
     }
 }
 

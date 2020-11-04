@@ -5,13 +5,13 @@ $count = 0;
 
 
 function alphabetTriangle(): void{
-    $alphabets = range('A', 'Z');
+    $alphabets = range('A', 'E');
     $k = 1;
     foreach($alphabets as $letter){
         for($i = 5; $i >= $k; $i--){
             echo $letter;
         }
-        echo "\n";
+        echo PHP_EOL;
         $k = $k + 1;
     }
 }
