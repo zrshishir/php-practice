@@ -17,7 +17,7 @@ class MobileSniffer{
 
     public function findDevice(){
         for($uaSniff = 0; $uaSniff < $this->deviceLenght; $uaSniff++){
-            if(strstr($this->userAgent, $this->devic[$uaSniff])){
+            if(strstr($this->userAgent, $this->device[$uaSniff])){
                 return $this->device[$uaSniff];
             }
         }
