@@ -13,8 +13,8 @@ function primeCheck($numer):int{
 
 for($i = 1; $i <= 20; $i++){
     if(primeCheck($i)){
-        echo $i . " is prime" . "\n";
+        echo $i . " is prime." . "\n";
     }else{
-        echo $i . " is not prime" . "\n";
+        echo $i . " is not prime." . "\n";
     }
 }
