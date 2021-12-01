@@ -11,6 +11,8 @@ $array[71] = 1971;
 
 $arraySize = count($array);
 
-for($i = 0;$i<$arraySize;$i++) {
-    echo "Position ".$i." holds the value ".$array[$i]."<br>";
+for($i = 0; $i < $arraySize; $i++) {
+    echo "Position " . $i . " holds the value " . $array[$i] . "\n";
 }
+
+echo count($array) . "\n";
