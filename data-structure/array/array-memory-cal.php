@@ -1,12 +1,12 @@
 <?php
 //simple memory calcuation
-$startMemory = memory_get_usage();
-$array = range(1,100000);
-$endMemory = memory_get_usage();
-echo ($endMemory - $startMemory)." bytes";
+//$startMemory = memory_get_usage();
+//$array = range(1,100000);
+//$endMemory = memory_get_usage();
+//echo ($endMemory - $startMemory)." bytes";
 
 //with SplFixedArray memroy calculation
-echo "<br>";
+//echo "<br>";
 
 $items = 100000;
 $startMemory1 = memory_get_usage();
