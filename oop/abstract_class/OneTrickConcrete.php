@@ -9,3 +9,6 @@ class OneTrickConcrete extends OneTrickAbstract
         return $whatever . $this->storeHere;
     }
 }
+
+$worker = new OneTrickConcrete();
+echo $worker->trick('From an abstract origin..');
