@@ -18,3 +18,5 @@ class UseProduct
         echo $iProduct->oranges();
     }
 }
+
+$worker = new UseProduct();
