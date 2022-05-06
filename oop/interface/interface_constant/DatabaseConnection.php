@@ -17,6 +17,7 @@ class DatabaseConnection implements InterfaceConstant
         {
             die('bad mojo');
         }
+        
         print "You're hooked up Ace! <br />" . $hookup->host_info;
         $hookup->close();
     }
