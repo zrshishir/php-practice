@@ -20,4 +20,4 @@ array_ds([1, 4, 3, 2]);
 $endTime = microtime(true);
 $endMemory = memory_get_usage();
 echo "execution time: " . ($endTime - $startTime) . "\n";
-echo "memroy used: " . ($endMemory - $startMemory) / (1024 * 1024) . "\n";
+echo "memory used: " . ($endMemory - $startMemory) / (1024 * 1024) . "\n";
