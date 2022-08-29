@@ -5,17 +5,21 @@ $count = 0;
 
 
 function array_ds(array $n) {
+    // define the length of an array
     $array_length = count($n);
+    // declaring an array output
     $output = [];
 
+    //implement the logic
     for ($i=1; $i <= $array_length; $i++) { 
         $output[] = $n[$array_length - $i];
     }
-    var_dump($output);
+    // return the output
+    return $output;
 }
 
 //calling function and giving output here
-array_ds([1, 4, 3, 2]);
+var_dump(array_ds([1, 4, 3, 2]));
 
 $endTime = microtime(true);
 $endMemory = memory_get_usage();
