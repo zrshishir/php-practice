@@ -9,8 +9,20 @@
  */
 function dynamicArray($n, $queries) {
     // Write your code here
-    return $queries;
+    $output_array = [];
+    $lastAnswer = 0;
+    $store_array = [];
 
+    foreach ($queries as $key => $value) {
+        $x = intval( $value[1] );
+        $y = intval( $value[2] );
+        
+        $index = ( $x ^ $lastAnswer ) % $n;
+        var_dump($index);
+        $store_array[$index] = $y;
+    }
+
+    var_dump($store_array);
 }
 
 $fptr = fopen("output.txt", "w");
