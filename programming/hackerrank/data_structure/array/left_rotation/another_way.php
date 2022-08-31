@@ -9,22 +9,9 @@
  */
 function rotateLeft($n, $d, $arr) {
     // Write your code here
-   while ($d > 0) {
-        $val = $arr[0];
-        $i = 0;
-        while ($i < $n) { 
-            if ( $i == $n - 1 ) {
-                $arr[$i] = $val;
-            } 
-            else {
-                $arr[$i] = $arr[$i+1];
-            }
-            $i++;
-        }
-    $d--;
-   }
-
-   return $arr;
+    $remaining = array_slice($arr, $d);
+    array_splice($arr, $d);
+    return array_merge($remaining,$arr);
 }
 
 
