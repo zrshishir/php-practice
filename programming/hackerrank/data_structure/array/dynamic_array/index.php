@@ -30,7 +30,7 @@ function dynamicArray($n, $queries) {
             if ( isset( $store_array[$ind] ) ) {
                 
                 $last_answer = $store_array[ $ind ][$y % sizeof($store_array[$ind])];
-                array_pop($store_array[$ind]);
+                // array_pop($store_array[$ind]);
                 $previous_last_answer = $last_answer;
                 $output_array[] = $last_answer;
             }

@@ -15,7 +15,7 @@ $count = 0;
  */
 function rotateLeft($array_length, $rotation_number, $arr) {
     // Write your code here
-   while ($rotation_number > 0) {
+   if ($rotation_number > 0) {
         $val = $arr[0];
         $i = 0;
         while ($i < $array_length) { 
@@ -28,6 +28,8 @@ function rotateLeft($array_length, $rotation_number, $arr) {
             $i++;
         }
     $rotation_number--;
+    
+    return rotateLeft( $array_length, $rotation_number, $arr );
    }
 
    return $arr;
