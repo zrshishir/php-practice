@@ -14,8 +14,8 @@ function hourGlassSum($a) {
         $sum = 0;
         for($j=0; $j < $array_length - 2; $j++) {
             // $sum = $a[$i][$j] + $a[$i][$j + 1] + $a[$i][$j + 2] ;
-            var_dump($j + 1);
-            // echo '[' . $i. '][' . $j . "], " . '[' . $i. '][' . $j . "], " . '[' . $i. '][' . $j . "], ";
+            // var_dump($j + 1);
+            echo '[' . $i. '][' . $j . "], " . '[' . $i. '][' . ($j + 1). "], " . '[' . $i. '][' . $j . "], ";
         }
         echo "\n";
     }
