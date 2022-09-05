@@ -20,31 +20,32 @@ function dynamicArray($n, $queries) {
         $x = intval( $value[1] );
         $y = intval( $value[2] );
         
-        if ( $type == 1) {
-            // determine the index of an array
-            $index = ( $x ^ $last_answer ) % $n; 
+        if ( $type == 1 ) {
+            $ind = ( $x ^ $last_answer ) % $n;
+            $store_array[ $ind ][] = $y;
             
-            // storing in array
-            $store_array[$index][] = $y;
-            var_dump($index, $store_array);
-        } elseif ( $type == 2 ) {
-            // define index 2
-            $idx1 = ( $x ^ $previous_last_answer ) % $n;
-            // var_dump( $idx1 );
-            $last_answer = end( $store_array[ $idx1 ] );
-            $previous_last_answer = $last_answer;
-            $output_array[ $idx1 ] = $last_answer;
-       }
+        } elseif ($type == 2) {
+            $ind = ( $x ^ $previous_last_answer ) % $n;
+            
+            if ( isset( $store_array[$ind] ) ) {
+                
+                $last_answer = $store_array[ $ind ][$y % sizeof($store_array[$ind])];
+                // array_pop($store_array[$ind]);
+                $previous_last_answer = $last_answer;
+                $output_array[] = $last_answer;
+            }
+            
+        }
     }
     
-    return array_reverse( $store_array );
+    return ($output_array) ;
 }
 
 
 
 $fptr = fopen("output.txt", "w");
 
-$file = fopen("input.txt", "r");
+$file = fopen("input2.txt", "r");
 
 $line = fgets($file);
 $first_multiple_input = explode(' ', $line);
