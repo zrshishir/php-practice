@@ -13,7 +13,7 @@ function kangaroo($x1, $v1, $x2, $v2) {
         return 'YES';
     }
 
-    for ($i=0; $i < 10000; $i++) { 
+    while ( $m1 != $m2 ) {
         $m1 = $m1 + $v1;
         $m2 = $m2 + $v2;
 
@@ -21,8 +21,6 @@ function kangaroo($x1, $v1, $x2, $v2) {
             return 'YES';
         }
     }
-
-    return 'NO';
 }
 
 $fptr = fopen(("output.txt"), "w");
