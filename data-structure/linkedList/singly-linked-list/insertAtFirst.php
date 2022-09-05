@@ -66,5 +66,5 @@ $insFirst->insert('a7');
 $insFirst->insert('a8');
 
 $insFirst->pushFirst('shishir');
-$insFirst->pushFirst('sumu');
+$insFirst->pushFirst('zia');
 $insFirst->display();
