@@ -35,7 +35,6 @@ for ($i = 0; $i < $queries_count; $i++) {
 }
 
 $result = matchingStrings($strings, $queries);
-
 fwrite($fptr, $result . "\n");
 
 fclose($fptr);
