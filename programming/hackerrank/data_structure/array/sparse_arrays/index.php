@@ -9,13 +9,26 @@
  */
 function matchingStrings($strings, $queries) {
     // Write your code here
+    $outputArray = [];
+    
+    for( $i = 0; $i < sizeof($queries); $i++) {
+        $counter = 0;
+        
+        for($j = 0; $j < sizeof($strings); $j++) {
+            if ( $queries[$i] == $strings[$j] ) {
+                $counter++;
+            }
+        }
+        $outputArray[] = $counter;
+    }
+
+    return $outputArray;
     
 }
 
 
 
 $fptr = fopen(("output.txt"), "w");
-
 
 $strings_count = intval(trim(fgets(STDIN)));
 
@@ -35,6 +48,7 @@ for ($i = 0; $i < $queries_count; $i++) {
 }
 
 $result = matchingStrings($strings, $queries);
-fwrite($fptr, $result . "\n");
+
+fwrite($fptr, print_r( $result, true ) );
 
 fclose($fptr);
