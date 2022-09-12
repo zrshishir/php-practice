@@ -7,34 +7,24 @@
  * @param array $queries
  * @return void
  */
-function getTotalX($a, $b) {
+function getTotalX($n, $arr, $m, $brr) {
     // Write your code here
-   
-    
+   var_dump($arr[ $n - 1 ], $brr[ $m - $m ]);
 }
-
-
 
 $fptr = fopen(("output.txt"), "w");
 
-$strings_count = intval(trim(fgets(STDIN)));
+$firstMultipleInput = explode( ' ', rtrim( fgets( STDIN ) ) );
+$n = intval( $firstMultipleInput[0] );
+$m = intval( $firstMultipleInput[1] );
 
-$strings = [];
+$arrTemp = rtrim( fgets( STDIN ) );
+$arr = array_map('intval', preg_split('/ /', $arrTemp, -1, PREG_SPLIT_NO_EMPTY));
 
-for ($i = 0; $i < $strings_count; $i++) {
-    $strings_item = rtrim(fgets(STDIN), "\r\n");
-    $strings[] = $strings_item;
-}
+$barrTemp = rtrim( fgets( STDIN ) );
+$brr = array_map('intval', preg_split('/ /', $barrTemp, -1, PREG_SPLIT_NO_EMPTY));
 
-$queries_count = intval( trim( fgets( STDIN ) ) );
-$queries = [];
-
-for ($i = 0; $i < $queries_count; $i++) { 
-    $query_item = rtrim( fgets( STDIN ), "\r\n" );
-    $queries[] = $query_item;
-}
-
-$result = matchingStrings($strings, $queries);
+$result = getTotalX($n, $arr, $m, $brr);
 
 fwrite($fptr, print_r( $result, true ) );
 
