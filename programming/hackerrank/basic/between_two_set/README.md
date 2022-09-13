@@ -1,4 +1,4 @@
 ### Resources
 
-    https://www.hackerrank.com/challenges/dynamic-array/problem?isFullScreen=true
+    https://www.hackerrank.com/challenges/between-two-sets/problem?isFullScreen=true
 
