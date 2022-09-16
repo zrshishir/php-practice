@@ -10,27 +10,25 @@
 function migratoryBirds( $n, $arr ) {
     // Write your code here
     $storeArray = [];
-    $output = 0;
-    $minVal = PHP_INT_MIN;
     
     for( $i = 0; $i < $n; $i++) {
         
-        if ( !isset($storeArray[$arr[$i]] ) ) {
-            $storeArray[$arr[$i]] = 0;
-        }
-
-        $storeArray[$arr[$i]]++;
-    }
-
-    foreach ($storeArray as $key => $value) {
-        
-        if ( $minVal < $value ) {
-            $minVal = $value;
-            $output = $key;
+        if ( array_key_exists( $arr[$i], $storeArray) ) {
+            $storeArray[$arr[$i]]++;
+        } else {
+            $storeArray[ $arr[$i] ] = 1;
         }
     }
+    
+    arsort( $storeArray );
+    $mostFrequentValue = array_values( $storeArray )[0];
+    $birdsValue = array_keys( $storeArray, $mostFrequentValue );
 
-    return $output;
+    if ( sizeof( $birdsValue ) > 1 ) {
+        asort( $birdsValue );
+    }
+
+    return array_values( $birdsValue )[0];
 }
 
 
