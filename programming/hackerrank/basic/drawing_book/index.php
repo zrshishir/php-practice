@@ -9,12 +9,21 @@
  */
 function pageCount($n, $p) {
     // Write your code here
-    if ( $n == $p || $p > $n ) {
+    if ( $n == $p || $p > $n || $p == 1 || ( ($n % 2 != 0) && ($n - 1 == $p) ) ) {
         return 0;
     }
 
-    if ( )
-    var_dump( $n, $p);
+    $pageMiddle = $n / 2;
+    $totalPageCount = intval( $pageMiddle );
+    $pageCount = intval( $p / 2 );
+
+    if ( $p < $pageMiddle ) {
+        return intval($pageCount ) ;
+    } else if ( $p > $pageMiddle ) {
+        return ($totalPageCount - $pageCount);
+    }
+ 
+    return intval($pageMiddle / 2) ;
 }
 
 
