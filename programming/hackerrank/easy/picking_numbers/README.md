@@ -1,5 +1,4 @@
 ### Resources
-
     https://www.hackerrank.com/challenges/picking-numbers/problem?h_r=next-challenge&h_v=zen
 
 ### Repo

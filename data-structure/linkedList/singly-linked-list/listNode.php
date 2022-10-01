@@ -3,7 +3,7 @@
 // creating node class
 class listNode{
     public $data = NULL;
-    public $nex = NULL;
+    public $next = NULL;
 
     public function __construct(string $data = NULL){
         $this->data = $data;
@@ -33,10 +33,10 @@ class linkedList{
 
 
     public function display(){
-        echo "Total book titles are: " . $this->totalNode. "<br>";
+        echo "Total book titles are: " . $this->totalNode. "\n";
         $currentNode = $this->firstNode;
         while($currentNode !== NULL){
-            echo $currentNode->data. "<br>";
+            echo $currentNode->data. "\n";
             $currentNode = $currentNode->next;
         }
     }
