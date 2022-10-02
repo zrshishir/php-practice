@@ -17,14 +17,34 @@ function climbingLeaderboard($ranked, $player) {
         if(in_array($value, $ranked)) {
             $result[] = array_search($value, $ranked) + 1;
         } else {
-            $ranked[] = $value;
-            
-            $ranked = array_values(array_unique($ranked));
+            $sorted_array = addAndSort($ranked, $value);
+            $ranked = $sorted_array[0];
             $result[] = array_search($value, $ranked) + 1;
         }
     }
 
     return $result;
+}
+
+function addAndSort($arr, $val) {
+    $pos = 0;
+    $item = 0;
+    
+    for($i = 0; $i <= sizeof($arr) ; $i++) {
+        if( $val < $arr[$i] && $val > $arr[$i + 1]) {
+            
+            if($pos == 0) {
+                $pos = $i + 1;
+            }
+             
+                $item = $arr[$i + 1];
+                $arr[$i + 1] = $val;
+                $val = $item;
+            
+        }
+    }
+
+    return [$arr, $pos];
 }
 
 $fptr = fopen(("output.txt"), "w");
