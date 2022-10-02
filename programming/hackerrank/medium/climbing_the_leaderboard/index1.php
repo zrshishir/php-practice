@@ -17,8 +17,7 @@ function climbingLeaderboard($ranked, $player) {
         if(in_array($value, $ranked)) {
             $result[] = array_search($value, $ranked) + 1;
         } else {
-            $sorted_array = addAndSort($ranked, $value);
-            $ranked = $sorted_array[0];
+            $ranked = addAndSort($value, $ranked);
             $result[] = array_search($value, $ranked) + 1;
         }
     }
@@ -26,25 +25,28 @@ function climbingLeaderboard($ranked, $player) {
     return $result;
 }
 
-function addAndSort($arr, $val) {
-    $pos = 0;
-    $item = 0;
-    
-    for($i = 0; $i <= sizeof($arr) ; $i++) {
-        if( $val < $arr[$i] && $val > $arr[$i + 1]) {
-            
-            if($pos == 0) {
-                $pos = $i + 1;
-            }
-             
+function addAndSort($val, $arr) {
+    $item_value = $val;
+    $i = 0;
+    while($i < sizeof($arr)) {
+        
+        if( ($i + 1) < sizeof($arr)) {
+            if( $val < $arr[$i] && $val > $arr[$i + 1]) {
+                
                 $item = $arr[$i + 1];
                 $arr[$i + 1] = $val;
                 $val = $item;
-            
-        }
+                
+            } 
+        } 
+        $i++;
+    }  
+
+    if($item_value < $arr[$i - 1]) {
+        $arr[] = $item_value;
     }
 
-    return [$arr, $pos];
+    return $arr;
 }
 
 $fptr = fopen(("output.txt"), "w");
@@ -60,5 +62,5 @@ $player = array_map('intval', preg_split('/ /', $arrTemp1, -1, PREG_SPLIT_NO_EMP
 
 $result = climbingLeaderboard($ranked, $player);
 
-fwrite($fptr, print_r($result) . "\n");
+fwrite($fptr, print_r( $result, true ) );
 fclose($fptr);
