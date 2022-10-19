@@ -3,10 +3,22 @@
 
 function superReducedString( $s ) {
     $strings = str_split($s);
-    for($i = 0; $i < strlen($s); $i++) {
+    $result = [];
+    $output = "";
 
+    for($i = 0; $i < strlen($s); $i++) {
+        !isset($result[$strings[$i]]) ? $result[$strings[$i]] = 1 : $result[$strings[$i]]++;
+        
+        if (($result[$strings[$i]] % 2 != 0)) {
+            $output = $output . $strings[$i];
+        } 
+
+        if  ($result[$strings[$i]] % 2 == 0) {
+            $output = str_replace($strings[$i], "", $output);
+        }
     }
-    print_r($strings);
+    
+    return empty($output) ? "Empty String" : $output;
 }
 
 $fptr = fopen(("output.txt"), "w");
@@ -14,6 +26,8 @@ $fptr = fopen(("output.txt"), "w");
 $s = rtrim(fgets(STDIN), "\r\n");
 
 $result = superReducedString($s);
-print_r($result, true);
-fwrite($fptr, print_r( $result, true ) );
+var_dump($result);
+fwrite($fptr, $result . "\n");
+
+
 fclose($fptr);
