@@ -3,22 +3,15 @@
 
 function superReducedString( $s ) {
     $strings = str_split($s);
-    $result = [];
-    $output = "";
 
     for($i = 0; $i < strlen($s); $i++) {
-        !isset($result[$strings[$i]]) ? $result[$strings[$i]] = 1 : $result[$strings[$i]]++;
-        
-        if (($result[$strings[$i]] % 2 != 0)) {
-            $output = $output . $strings[$i];
-        } 
-
-        if  ($result[$strings[$i]] % 2 == 0) {
-            $output = str_replace($strings[$i], "", $output);
+        if($strings[$i] == $strings[$i+1]) {
+            $strings[$i] = '';
+            $strings[$i+1] = '';
         }
     }
     
-    return empty($output) ? "Empty String" : $output;
+    return array_values(array_unique($strings));
 }
 
 $fptr = fopen(("output.txt"), "w");
