@@ -11,19 +11,15 @@ function superReducedString( $s ) {
         if( isset($strings[$i + 1]) && $strings[$i] == $strings[$i + 1]) {
             $strings[$i] = '';
             $strings[$i + 1] = '';
-
-            if (($i > 0 && isset($strings[$i + 2])) && $strings[$i - 1] == $strings[$i + 2]) {
-                print_r($output);
-                $strings[$i - 1] = '';
-                $strings[$i + 2] = '';
-                $output = str_replace($strings[$i - 1], '', $output);
-            }
-        }
-
-        if( !empty($strings[$i]) ){
-            $output .= $strings[$i];
         }
         
+        if( !empty($strings[$i]) ){
+            if( substr($output, -1) == $strings[$i] ){
+                $output = substr($output, 0, -1);
+            } else {
+                $output .= $strings[$i];
+            }
+        }
     }
     
     return ($output ?: "Empty String");
@@ -35,6 +31,6 @@ $s = rtrim(fgets(STDIN), "\r\n");
 
 $result = superReducedString($s);
 
-fwrite($fptr, print_r($result) . "\n");
+fwrite($fptr, print_r($result, true) . "\n");
 
 fclose($fptr);
