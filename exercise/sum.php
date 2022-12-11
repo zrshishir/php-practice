@@ -59,3 +59,12 @@ abstract class AbstractClass
         print $this->getValue() . "\n";
     }
 }
+
+//Complete the printLinkedList function in the editor below.
+//printLinkedList has the following parameter(s):
+//SinglyLinkedListNode head: a reference to the head of the list
+
+function printLinkedList($head) {
+    $current = $head;
+    while ($current != null) {
+        echo $current->data . "
